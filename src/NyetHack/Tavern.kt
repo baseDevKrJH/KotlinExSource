@@ -1,3 +1,5 @@
+package NyetHack
+
 fun main(args: Array<String>) {
 /*
     var signatureDrink = "맥주"

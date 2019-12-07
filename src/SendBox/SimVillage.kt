@@ -1,4 +1,4 @@
-package EX02
+package SendBox
 
 fun main(args: Array<String>) {
 // case 1

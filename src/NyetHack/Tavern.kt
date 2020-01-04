@@ -1,9 +1,11 @@
 package NyetHack
 
+import kotlin.math.roundToInt
+
 const val TAVERN_NAME = "Taernyl's Folly"
 
-val playerGold = 10
-val playerSilver = 10
+var playerGold = 10
+var playerSilver = 10
 
 fun main(args: Array<String>) {
     //placeOrder()
@@ -16,8 +18,14 @@ fun performPurchase(price: Double) {
     val totalPurse = playerGold + (playerSilver / 100.0)
     println("지갑 전체 금액: 금화 $totalPurse")
     println("금화 $price 로 술을 구입함")
-    val remianingBalance = totalPurse - price
-    println("남은 잔액: ${"%.2f".format(remianingBalance)}")
+    val remainingBalance = totalPurse - price
+    println("남은 잔액: ${"%.2f".format(remainingBalance)}")
+
+    val remainGold = remainingBalance.toInt()
+    val remainingSilver = (remainingBalance % 1 * 100).roundToInt()
+    playerGold = remainGold
+    playerSilver = remainingSilver
+    displayBalance()
 }
 
 fun displayBalance() {

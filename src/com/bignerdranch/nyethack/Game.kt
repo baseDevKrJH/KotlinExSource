@@ -1,12 +1,20 @@
-package NyetHack
+package com.bignerdranch.nyethack
 
 fun main(args: Array<String>) {
-    val name="마드리갈"
-    var healthPoints = 89
-    val isBlessed = true
-    val isImmortal = false
-    val auraColor = auraColor(isBlessed, healthPoints, isImmortal)
+    //val name="마드리갈"
+//    var healthPoints = 89
+//    val isBlessed = true
+//    val isImmortal = false
 
+    val player = Player()
+    player.castFireball()
+
+//    val auraColor = auraColor(isBlessed, healthPoints, isImmortal)
+//    val healthStatus = formatHealthStatus(healthPoints, isBlessed)
+
+    printPlayerStatus(player/*auraColor, isBlessed, player.name, healthStatus*/)
+
+//    castFireball()
 
 //    if(isBlessed && healthPoints > 50 || isImmortal) {
 //    if(auraVisible) {
@@ -31,27 +39,28 @@ fun main(args: Array<String>) {
 //        println(name + " 최악의 상태임!")
 //    }
 
-    val healthStatus = formatHealthStatus(healthPoints, isBlessed)
+
 
     //println(name + " " + healthStatus)
 
-    printPlayerStatus(auraColor, isBlessed, name, healthStatus)
 
-    castFireball()
 }
 
-private fun printPlayerStatus(auraColor: String, isBlessed: Boolean, name: String, healthStatus: String) {
-    println("(Aura: $auraColor) " +
-            "(Blessed: ${if (isBlessed) "YES" else "NO"})")
-    println("$name $healthStatus")
+private fun printPlayerStatus(player: Player/*auraColor: String, isBlessed: Boolean, name: String, healthStatus: String*/) {
+    println("(Aura: ${player.auraColor()}) " +
+            "(Blessed: ${if (player.isBlessed) "YES" else "NO"})")
+    println("${player.name} ${player.formatHealthStatus()}")
 }
 
+/*
 private fun auraColor(isBlessed: Boolean, healthPoints: Int, isImmortal: Boolean): String {
     val auraVisible = isBlessed && healthPoints > 50 || isImmortal
     val auraColor = if (auraVisible) "GREEN" else "NONE"
     return auraColor
 }
+*/
 
+/*
 private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean): String {
     val healthStatus = when (healthPoints) {
         100 -> "최상의 상태임!"
@@ -66,6 +75,7 @@ private fun formatHealthStatus(healthPoints: Int, isBlessed: Boolean): String {
     }
     return healthStatus
 }
+*/
 
 private fun castFireball(numFireballs: Int=2) {
     println("한 덩어리의 파이어볼이 나타난다. (x$numFireballs)")

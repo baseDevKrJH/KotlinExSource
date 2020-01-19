@@ -6,8 +6,12 @@ fun main(args: Array<String>) {
 //    val isBlessed = true
 //    val isImmortal = false
 
-    val player = Player()
+    val player = Player("Marigal")
     player.castFireball()
+
+    var currentRoom: Room = Townsquare()
+    println(currentRoom.description())
+    println(currentRoom.load())
 
 //    val auraColor = auraColor(isBlessed, healthPoints, isImmortal)
 //    val healthStatus = formatHealthStatus(healthPoints, isBlessed)

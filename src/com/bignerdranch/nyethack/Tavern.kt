@@ -17,6 +17,8 @@ val menuList = File("data/tavern-menu-items.txt")
 //val patronGold = mapOf("Eli" to 10.5, "Mordoc" to 8.0, "Sophie" to 5.5)
 val patronGold = mutableMapOf<String, Double>()
 
+private fun <T> Iterable<T>.random(): T = this.shuffled().first()
+
 fun main(args: Array<String>) {
     //placeOrder()
     //placeOrder("shandy,Dragon's Breath,5.91")
@@ -60,8 +62,8 @@ fun main(args: Array<String>) {
 //    }
 
     (0..9).forEach{
-        val first = patronList.shuffled().first()
-        val last = lastName.shuffled().first()
+        val first = patronList.random()
+        val last = lastName.random()
         val name = "$first $last"
         //println(name)
         uniquePatrons += name
@@ -73,7 +75,7 @@ fun main(args: Array<String>) {
 
     var orderCount = 0
     while(orderCount <= 9) {
-        placeOrder(uniquePatrons.shuffled().first(), menuList.shuffled().first())
+        placeOrder(uniquePatrons.random(), menuList.random())
         orderCount++
     }
 
